@@ -1,6 +1,23 @@
+import Image from "next/image";
+
 const galleryImages = [
+  "/images/events/photo_2026-07-23_18-05-19.jpg",
+  "/images/hero/photo_2026-07-23_18-02-46.jpg",
+  "/images/events/photo_2026-07-23_18-05-43.jpg",
+  "/images/hero/photo_2026-07-23_18-02-35.jpg",
+  "/images/events/photo_2026-07-23_18-05-48.jpg",
+  "/images/hero/photo_2026-07-23_18-02-24.jpg",
+  "/images/hero/photo_2026-07-23_18-02-19.jpg",
+  "/images/events/photo_2026-07-23_18-05-58.jpg",
+  "/images/hero/photo_2026-07-23_18-01-30.jpg",
+];
+
+const galleryAspects = [
   "aspect-square",
   "aspect-video",
+  "aspect-square",
+  "aspect-video",
+  "aspect-square",
   "aspect-square",
   "aspect-video",
   "aspect-square",
@@ -22,16 +39,18 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((aspect, i) => (
+          {galleryImages.map((src, i) => (
             <div
               key={i}
-              className={`${aspect} rounded-xl border border-charcoal-light bg-charcoal-lighter/50 overflow-hidden relative group`}
+              className={`${galleryAspects[i]} rounded-xl border border-charcoal-light bg-charcoal-lighter/50 overflow-hidden relative group`}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-foreground/20 text-xs font-medium uppercase tracking-widest">
-                  Image
-                </span>
-              </div>
+              <Image
+                src={src}
+                alt={`Gallery image ${i + 1}`}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>

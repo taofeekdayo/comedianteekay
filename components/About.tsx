@@ -1,4 +1,6 @@
-import { Quote } from "lucide-react";
+import Image from "next/image";
+
+const portraitImage = "/images/hero/photo_2026-07-23_18-02-04.jpg";
 
 export default function About() {
   return (
@@ -33,15 +35,15 @@ export default function About() {
               </div>
             </div>
           </div>
-          
+
           <div className="relative">
-            <div className="aspect-square rounded-2xl border border-charcoal-light bg-charcoal-lighter/50 overflow-hidden flex items-center justify-center">
-              <div className="text-center p-8">
-                <Quote className="h-12 w-12 text-gold/30 mx-auto mb-4" />
-                <p className="text-foreground/40 text-sm font-medium uppercase tracking-widest">
-                  Teekay Portrait Placeholder
-                </p>
-              </div>
+            <div className="aspect-square rounded-2xl border border-charcoal-light overflow-hidden relative">
+              <Image
+                src={portraitImage}
+                alt="Teekay portrait"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/10 rounded-2xl -z-10" />
           </div>

@@ -1,10 +1,13 @@
-import { CalendarDays, Ticket, Mic2 } from "lucide-react";
+import Image from "next/image";
+import { CalendarDays, Ticket } from "lucide-react";
+
+const heroImage = "/images/hero/photo_2026-07-23_18-02-13.jpg";
 
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-charcoal to-background" />
-      
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 text-center">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-charcoal-light/50 px-4 py-1.5 backdrop-blur-sm">
@@ -40,17 +43,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 aspect-video max-w-5xl mx-auto rounded-2xl border border-charcoal-light bg-charcoal-lighter/50 overflow-hidden relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div className="rounded-full border-2 border-gold/30 p-6 mb-4 mx-auto w-fit">
-                <Mic2 className="h-16 w-16 text-gold mx-auto" />
-              </div>
-              <p className="text-foreground/40 text-sm font-medium uppercase tracking-widest">
-                Comedy Image Placeholder
-              </p>
-            </div>
-          </div>
+        <div className="mt-16 aspect-video max-w-5xl mx-auto rounded-2xl border border-charcoal-light overflow-hidden relative">
+          <Image
+            src={heroImage}
+            alt="Teekay on stage"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         </div>
       </div>
     </section>

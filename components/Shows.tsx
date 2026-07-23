@@ -1,4 +1,11 @@
-import { CalendarDays, MapPin, Ticket } from "lucide-react";
+import { MapPin, Ticket } from "lucide-react";
+import Image from "next/image";
+
+const eventImages = [
+  "/images/events/photo_2026-07-23_18-05-19.jpg",
+  "/images/events/photo_2026-07-23_18-05-43.jpg",
+  "/images/events/photo_2026-07-23_18-05-48.jpg",
+];
 
 const shows = [
   {
@@ -41,10 +48,14 @@ export default function Shows() {
               key={index}
               className="group rounded-2xl border border-charcoal-light bg-charcoal overflow-hidden hover:border-gold/50 transition-all duration-300"
             >
-              <div className="aspect-video bg-charcoal-lighter relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <CalendarDays className="h-12 w-12 text-gold/30" />
-                </div>
+              <div className="aspect-video relative overflow-hidden">
+                <Image
+                  src={eventImages[index]}
+                  alt={show.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <div className="absolute top-4 left-4 rounded-full bg-gold/20 px-3 py-1 backdrop-blur-sm">
                   <span className="text-xs font-bold uppercase tracking-wider text-gold">
                     {show.date}

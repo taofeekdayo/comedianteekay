@@ -1,9 +1,23 @@
+import Image from "next/image";
 import { Play } from "lucide-react";
 
 const videos = [
-  { title: "Laugh Beyond Limits - Live at the Apollo", duration: "12:34" },
-  { title: "Teekay: The Special Experience", duration: "45:21" },
-  { title: "Stand-Up Highlights 2025", duration: "08:15" },
+  {
+    title: "Laugh Beyond Limits - Live at the Apollo",
+    duration: "12:34",
+    src: "/videos/video_2026-07-23_18-06-03.mp4",
+    poster: "/images/events/photo_2026-07-23_18-05-19.jpg",
+  },
+  {
+    title: "Teekay: The Special Experience",
+    duration: "45:21",
+    poster: "/images/events/photo_2026-07-23_18-05-43.jpg",
+  },
+  {
+    title: "Stand-Up Highlights 2025",
+    duration: "08:15",
+    poster: "/images/events/photo_2026-07-23_18-05-48.jpg",
+  },
 ];
 
 export default function Videos() {
@@ -26,14 +40,30 @@ export default function Videos() {
               key={index}
               className="group relative aspect-video rounded-2xl border border-charcoal-light bg-charcoal-lighter overflow-hidden hover:border-gold/50 transition-all duration-300"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <Play className="h-12 w-12 text-gold/40 mx-auto mb-2" />
-                  <p className="text-foreground/30 text-xs font-medium uppercase tracking-widest">
-                    Video Placeholder
-                  </p>
-                </div>
-              </div>
+              {video.src ? (
+                <video
+                  controls
+                  className="absolute inset-0 w-full h-full object-cover"
+                  poster={video.poster}
+                  preload="metadata"
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
+              ) : (
+                <>
+                  <Image
+                    src={video.poster}
+                    alt={video.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="rounded-full border-2 border-gold/50 p-4 bg-background/30 backdrop-blur-sm">
+                      <Play className="h-8 w-8 text-gold fill-gold" />
+                    </div>
+                  </div>
+                </>
+              )}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
                 <p className="text-sm font-medium text-foreground truncate">{video.title}</p>
                 <p className="text-xs text-foreground/50 mt-1">{video.duration}</p>
