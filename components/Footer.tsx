@@ -1,5 +1,10 @@
 import { Mic2 } from "lucide-react";
 
+const socials = {
+  instagram: "https://www.instagram.com/comedianteekay?igsh=MXF0bTRweXJnamJ1aw%3D%3D&utm_source=qr",
+  facebook: "https://www.facebook.com/share/196kXv3F6p/?mibextid=wwXIfr",
+};
+
 export default function Footer() {
   return (
     <footer className="bg-charcoal border-t border-charcoal-light">
@@ -30,10 +35,8 @@ export default function Footer() {
           <div>
             <h4 className="font-serif font-bold text-foreground mb-4">Connect</h4>
             <div className="flex flex-col gap-3">
-              <a href="#" className="text-foreground/60 hover:text-gold transition-colors text-sm">Instagram</a>
-              <a href="#" className="text-foreground/60 hover:text-gold transition-colors text-sm">YouTube</a>
-              <a href="#" className="text-foreground/60 hover:text-gold transition-colors text-sm">Twitter</a>
-              <a href="#" className="text-foreground/60 hover:text-gold transition-colors text-sm">Facebook</a>
+              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors text-sm">Instagram</a>
+              <a href={socials.facebook} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors text-sm">Facebook</a>
             </div>
           </div>
         </div>

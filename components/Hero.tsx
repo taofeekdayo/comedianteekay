@@ -27,7 +27,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#book"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-semibold text-background shadow-lg shadow-gold/20 hover:bg-gold-light transition-colors"
             >
               <Ticket className="h-5 w-5" />
@@ -43,15 +43,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 aspect-video max-w-5xl mx-auto rounded-2xl border border-charcoal-light overflow-hidden relative">
+        <div className="mt-12 sm:mt-16 h-[50vh] sm:h-[60vh] lg:h-[75vh] max-w-6xl mx-auto rounded-2xl overflow-hidden relative">
           <Image
             src={heroImage}
             alt="Teekay on stage"
             fill
-            className="object-cover"
             priority
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         </div>
       </div>
     </section>

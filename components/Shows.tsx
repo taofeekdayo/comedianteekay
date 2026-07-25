@@ -1,32 +1,13 @@
-import { MapPin, Ticket } from "lucide-react";
+import { Ticket } from "lucide-react";
 import Image from "next/image";
 
-const eventImages = [
-  "/images/events/photo_2026-07-23_18-05-19.jpg",
-  "/images/events/photo_2026-07-23_18-05-43.jpg",
-  "/images/events/photo_2026-07-23_18-05-48.jpg",
-];
-
-const shows = [
-  {
-    date: "Aug 15, 2026",
-    title: "Laugh Factory Live",
-    venue: "The Laugh Factory",
-    location: "Los Angeles, CA",
-  },
-  {
-    date: "Sep 02, 2026",
-    title: "Comedy Cellar Special",
-    venue: "Comedy Cellar",
-    location: "New York, NY",
-  },
-  {
-    date: "Oct 10, 2026",
-    title: "Teekay & Friends",
-    venue: "Royal Albert Hall",
-    location: "London, UK",
-  },
-];
+const upcomingShow = {
+  title: "Comedy Special",
+  date: "Coming Soon",
+  venue: "Venue Details Coming Soon",
+  location: "Stay Tuned",
+  image: "/images/special/photo_2026-07-23_18-05-58.jpg",
+};
 
 export default function Shows() {
   return (
@@ -42,48 +23,33 @@ export default function Shows() {
           <div className="h-1 w-20 bg-gold mx-auto mt-6" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {shows.map((show, index) => (
-            <div
-              key={index}
-              className="group rounded-2xl border border-charcoal-light bg-charcoal overflow-hidden hover:border-gold/50 transition-all duration-300"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <Image
-                  src={eventImages[index]}
-                  alt={show.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute top-4 left-4 rounded-full bg-gold/20 px-3 py-1 backdrop-blur-sm">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gold">
-                    {show.date}
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-foreground mb-2 group-hover:text-gold transition-colors">
-                  {show.title}
-                </h3>
-                <div className="flex items-start gap-2 text-sm text-foreground/60 mb-1">
-                  <MapPin className="h-4 w-4 mt-0.5 text-gold" />
-                  <span>{show.venue}</span>
-                </div>
-                <div className="flex items-start gap-2 text-sm text-foreground/60 mb-6">
-                  <MapPin className="h-4 w-4 mt-0.5 text-gold" />
-                  <span>{show.location}</span>
-                </div>
-                <a
-                  href="#book"
-                  className="inline-flex items-center gap-2 rounded-full border border-gold px-5 py-2.5 text-sm font-medium text-gold hover:bg-gold hover:text-background transition-colors w-full justify-center"
-                >
-                  <Ticket className="h-4 w-4" />
-                  Book Now
-                </a>
-              </div>
+        <div className="max-w-2xl mx-auto">
+          <div className="group rounded-2xl border border-gold/30 bg-charcoal overflow-hidden hover:border-gold transition-all duration-300">
+            <div className="aspect-video sm:aspect-[16/9] relative overflow-hidden bg-charcoal-lighter">
+              <Image
+                src={upcomingShow.image}
+                alt={upcomingShow.title}
+                fill
+                className="object-contain p-6"
+                priority
+              />
             </div>
-          ))}
+            <div className="p-6 sm:p-8 text-center">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-3">
+                {upcomingShow.title}
+              </h3>
+              <p className="text-foreground/70 mb-1">Date: {upcomingShow.date}</p>
+              <p className="text-foreground/70 mb-1">Venue: {upcomingShow.venue}</p>
+              <p className="text-foreground/70 mb-6">{upcomingShow.location}</p>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-3 text-base font-semibold text-background shadow-lg shadow-gold/20 hover:bg-gold-light transition-colors"
+              >
+                <Ticket className="h-5 w-5" />
+                Get Tickets
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

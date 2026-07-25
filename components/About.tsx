@@ -37,12 +37,12 @@ export default function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-2xl border border-charcoal-light overflow-hidden relative">
+            <div className="aspect-[3/4] rounded-2xl border border-charcoal-light bg-charcoal-lighter overflow-hidden relative">
               <Image
                 src={portraitImage}
                 alt="Teekay portrait"
                 fill
-                className="object-cover"
+                className="object-contain p-2"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/10 rounded-2xl -z-10" />

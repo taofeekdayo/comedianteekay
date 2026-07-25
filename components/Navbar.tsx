@@ -25,7 +25,7 @@ export default function Navbar() {
             <a href="#gallery" className="text-sm font-medium text-foreground hover:text-gold transition-colors">Gallery</a>
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-gold transition-colors">Contact</a>
             <a
-              href="#book"
+              href="#contact"
               className="rounded-full border border-gold px-5 py-2 text-sm font-medium text-gold hover:bg-gold hover:text-background transition-colors"
             >
               Book Me
@@ -51,7 +51,7 @@ export default function Navbar() {
               <a href="#gallery" className="text-sm font-medium text-foreground hover:text-gold" onClick={() => setIsOpen(false)}>Gallery</a>
               <a href="#contact" className="text-sm font-medium text-foreground hover:text-gold" onClick={() => setIsOpen(false)}>Contact</a>
               <a
-                href="#book"
+                href="#contact"
                 className="rounded-full border border-gold px-5 py-3 text-sm font-medium text-gold hover:bg-gold hover:text-background transition-colors text-center"
                 onClick={() => setIsOpen(false)}
               >
