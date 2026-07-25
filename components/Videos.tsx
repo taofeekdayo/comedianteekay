@@ -6,17 +6,17 @@ const videos = [
     title: "Laugh Beyond Limits - Live at the Apollo",
     duration: "12:34",
     src: "/videos/video_2026-07-23_18-06-03.mp4",
-    poster: "/images/events/photo_2026-07-23_18-05-19.jpg",
+    poster: "/images/hero/photo_2026-07-23_18-02-46.jpg",
   },
   {
     title: "Teekay: The Special Experience",
     duration: "45:21",
-    poster: "/images/events/photo_2026-07-23_18-05-43.jpg",
+    poster: "/images/hero/photo_2026-07-23_18-02-35.jpg",
   },
   {
     title: "Stand-Up Highlights 2025",
     duration: "08:15",
-    poster: "/images/events/photo_2026-07-23_18-05-48.jpg",
+    poster: "/images/hero/photo_2026-07-23_18-02-24.jpg",
   },
 ];
 

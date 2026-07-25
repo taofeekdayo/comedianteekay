@@ -5,15 +5,12 @@ import Image from "next/image";
 import ImageLightbox from "./ImageLightbox";
 
 const galleryImages = [
-  "/images/events/photo_2026-07-23_18-05-19.jpg",
-  "/images/hero/photo_2026-07-23_18-02-46.jpg",
-  "/images/events/photo_2026-07-23_18-05-43.jpg",
-  "/images/hero/photo_2026-07-23_18-02-35.jpg",
-  "/images/events/photo_2026-07-23_18-05-48.jpg",
-  "/images/hero/photo_2026-07-23_18-02-24.jpg",
-  "/images/hero/photo_2026-07-23_18-02-19.jpg",
-  "/images/events/photo_2026-07-23_18-05-58.jpg",
-  "/images/hero/photo_2026-07-23_18-01-30.jpg",
+  { src: "/images/hero/photo_2026-07-23_18-02-46.jpg", width: 853, height: 1280 },
+  { src: "/images/hero/photo_2026-07-23_18-02-35.jpg", width: 853, height: 1280 },
+  { src: "/images/hero/photo_2026-07-23_18-02-24.jpg", width: 1024, height: 1280 },
+  { src: "/images/hero/photo_2026-07-23_18-02-19.jpg", width: 853, height: 1280 },
+  { src: "/images/special/photo_2026-07-23_18-05-58.jpg", width: 1024, height: 1280 },
+  { src: "/images/hero/photo_2026-07-23_18-01-30.jpg", width: 654, height: 1280 },
 ];
 
 export default function Gallery() {
@@ -33,20 +30,20 @@ export default function Gallery() {
             <div className="h-1 w-20 bg-gold mx-auto mt-6" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((src, i) => (
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-4">
+            {galleryImages.map((img, i) => (
               <button
                 key={i}
                 onClick={() => setLightboxIndex(i)}
-                className="aspect-video rounded-xl border border-charcoal-light shadow-lg shadow-black/20 overflow-hidden relative group focus:outline-none focus:ring-2 focus:ring-gold"
+                className="mb-4 break-inside-avoid rounded-xl border border-charcoal-light shadow-lg shadow-black/20 overflow-hidden relative group bg-charcoal-lighter focus:outline-none focus:ring-2 focus:ring-gold"
               >
                 <Image
-                  src={src}
+                  src={img.src}
                   alt={`Gallery image ${i + 1}`}
-                  fill
+                  width={img.width}
+                  height={img.height}
                   loading="lazy"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500 animate-fade-in"
                 />
               </button>
             ))}
@@ -56,7 +53,7 @@ export default function Gallery() {
 
       {lightboxIndex !== null && (
         <ImageLightbox
-          images={galleryImages}
+          images={galleryImages.map((img) => img.src)}
           initialIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
         />
