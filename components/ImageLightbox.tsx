@@ -77,7 +77,7 @@ export default function ImageLightbox({ images, initialIndex, onClose }: Lightbo
         </button>
 
         <div
-          className="w-full h-full flex items-center justify-center overflow-hidden"
+          className="w-full h-full flex items-center justify-center"
           onTouchStart={(e) => {
             touchStartX.current = e.changedTouches[0].screenX;
           }}
@@ -94,14 +94,14 @@ export default function ImageLightbox({ images, initialIndex, onClose }: Lightbo
             alt=""
             width={1200}
             height={800}
-            className="max-w-full max-h-full object-contain animate-scale-in shadow-2xl"
+            className="max-w-full max-h-full object-contain shadow-2xl"
             style={{ transform: `scale(${scale})` }}
           />
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 z-10">
           <button
-            onClick={() => setScale((s) => Math.max(0.5, s - 0.25))}
+            onClick={() => setScale((s) => Math.max(1, s - 0.25))}
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors text-sm font-bold"
             aria-label="Zoom out"
           >
@@ -109,7 +109,7 @@ export default function ImageLightbox({ images, initialIndex, onClose }: Lightbo
           </button>
           <span className="text-white text-sm">{Math.round(scale * 100)}%</span>
           <button
-            onClick={() => setScale((s) => Math.min(3, s + 0.25))}
+            onClick={() => setScale((s) => Math.min(5, s + 0.25))}
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors text-sm font-bold"
             aria-label="Zoom in"
           >
