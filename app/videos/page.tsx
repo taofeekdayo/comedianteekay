@@ -1,14 +1,19 @@
 import PageLayout from "../../components/PageLayout";
 import SectionHeader from "../../components/sections/SectionHeader";
-import { Play } from "lucide-react";
 
 const videos = [
-  { title: "Laugh Beyond Limits - Live at the Apollo", duration: "12:34" },
-  { title: "Teekay: The Special Experience", duration: "45:21" },
-  { title: "Stand-Up Highlights 2025", duration: "08:15" },
-  { title: "Late Night Set - Full Performance", duration: "28:00" },
-  { title: "Best of Teekay: Roast Edition", duration: "18:45" },
-  { title: "Festival Headliner - Full Set", duration: "52:10" },
+  {
+    title: " Teekay's performance at OB Ampnsah's Bukom Arenas show",
+    duration: "1:34",
+    src: "/videos/video_2026-07-23_18-06-03.mp4",
+    poster: "/images/hero/photo_2026-07-23_18-02-46.jpg",
+  },
+  {
+    title: "Teekay cracked bones at Okokobioko's special",
+    duration: "1:24",
+    src: "/videos/Teekay cracked bones at Okokobioko's special.mp4",
+    poster: "/images/hero/photo_2026-07-23_18-02-35.jpg",
+  },
 ];
 
 export default function VideosPage() {
@@ -25,17 +30,23 @@ export default function VideosPage() {
             {videos.map((video, index) => (
               <div
                 key={index}
-                className="group relative aspect-video rounded-2xl border border-charcoal-light bg-charcoal-lighter overflow-hidden hover:border-gold/50 transition-all duration-300 cursor-pointer"
+                className="group relative aspect-video rounded-2xl border border-charcoal-light bg-charcoal-lighter overflow-hidden hover:border-gold/50 transition-all duration-300"
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <Play className="h-12 w-12 text-gold/40 mx-auto mb-2" />
-                    <p className="text-foreground/30 text-xs font-medium uppercase tracking-widest">Video Placeholder</p>
-                  </div>
-                </div>
+                <video
+                  controls
+                  className="absolute inset-0 w-full h-full object-contain bg-charcoal-lighter"
+                  poster={video.poster}
+                  preload="metadata"
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
-                  <p className="text-sm font-medium text-foreground truncate">{video.title}</p>
-                  <p className="text-xs text-foreground/50 mt-1">{video.duration}</p>
+                  <p className="text-sm font-medium text-foreground truncate">
+                    {video.title}
+                  </p>
+                  <p className="text-xs text-foreground/50 mt-1">
+                    {video.duration}
+                  </p>
                 </div>
               </div>
             ))}
