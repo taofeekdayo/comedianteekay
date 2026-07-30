@@ -13,6 +13,8 @@ const videos = [
   },
 ];
 
+import VideoPlayer from "./VideoPlayer";
+
 export default function Videos() {
   return (
     <section id="videos" className="py-24 bg-charcoal">
@@ -33,14 +35,7 @@ export default function Videos() {
               key={index}
               className="group relative aspect-video rounded-2xl border border-charcoal-light bg-charcoal-lighter overflow-hidden hover:border-gold/50 transition-all duration-300"
             >
-              <video
-                controls
-                className="absolute inset-0 w-full h-full object-contain bg-charcoal-lighter"
-                poster={video.poster}
-                preload="metadata"
-              >
-                <source src={video.src} type="video/mp4" />
-              </video>
+              <VideoPlayer src={video.src} poster={video.poster} />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
                 <p className="text-sm font-medium text-foreground truncate">
                   {video.title}
