@@ -3,18 +3,15 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     quote: "Teekay had the entire room rolling. His timing is impeccable and his wit is razor-sharp. A truly world-class performance.",
-    name: "Sarah Johnson",
-    role: "VIP Guest, The Comedy Store",
+    name: "Kwame Asare",
   },
   {
     quote: "I laughed so hard I cried. Teekay knows how to command a room like no other. We booked him for our annual gala and it was the best decision we made.",
-    name: "Michael Chen",
-    role: "Event Director, Global Tech Summit",
+    name: "Ama Serwaa",
   },
   {
     quote: "Refined, hilarious, and incredibly engaging. Teekay brings an elegance to comedy that is rare and absolutely captivating.",
-    name: "Elena Rodriguez",
-    role: "Entertainment Editor, Luxe Magazine",
+    name: "Kofi Mensah",
   },
 ];
 
@@ -48,7 +45,6 @@ export default function Testimonials() {
               </p>
               <div>
                 <p className="font-serif font-bold text-foreground">{item.name}</p>
-                <p className="text-sm text-foreground/50">{item.role}</p>
               </div>
             </div>
           ))}
